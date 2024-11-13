@@ -11,7 +11,8 @@
 
     <script>
         // Function to send a "goBack" message to the iframe
-        function goBackInIframe() {
+        function goBackInIframe() {            
+            console.log("goBackInIframe function called");
             const iframe = document.getElementById('myIframe');
             iframe.contentWindow.postMessage("goBack", "https://f93e-213-134-167-79.ngrok-free.app");
         }
@@ -19,6 +20,7 @@
         // Listen for a native message to trigger iframe back navigation
         window.addEventListener("message", (event) => {
             if (event.data === "goBackInIframe") {
+                console.log("Received goBackInIframe message");
                 goBackInIframe();
             }
         });
