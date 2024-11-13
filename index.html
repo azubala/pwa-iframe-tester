@@ -6,6 +6,21 @@
     <title>Embedded Ngrok Page</title>
 </head>
 <body>    
-    <iframe src="https://4db5-213-134-167-79.ngrok-free.app" width="95%" height="600px"></iframe>
+    <iframe id="myIframe" src="https://4db5-213-134-167-79.ngrok-free.app" width="95%" height="600px"></iframe>
+        <script>
+        
+        function goBackInIframe() {
+            const iframe = document.getElementById('myIframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.history.back();
+            }
+        }
+        
+        window.addEventListener("message", (event) => {
+            if (event.data === "goBackInIframe") {
+                goBackInIframe();
+            }
+        });
+    </script>
 </body>
 </html>
