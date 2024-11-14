@@ -14,7 +14,7 @@
         function goBackInIframe() {            
             console.log("goBackInIframe function called");
             const iframe = document.getElementById('myIframe');
-            iframe.contentWindow.postMessage("goBack");
+            iframe.contentWindow.postMessage("goBack", "*");
         }
 
         // Listen for a native message to trigger iframe back navigation
